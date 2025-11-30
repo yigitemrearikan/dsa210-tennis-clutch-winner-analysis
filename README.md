@@ -34,7 +34,6 @@ To ensure high data quality and relevance, the following preprocessing steps wer
 
 ### 1. The "Clutch Index" Measure 
 A custom-engineered metric designed to quantify a player's mental fortitude. The index is a weighted aggregate of the following components:
-* $$\text{BaseScore} = (0.4 \times BP_{save\%}) + (0.2 \times TB_{win\%}) + (0.2 \times Decider_{win\%}) + \text{Bonuses}$$
 * **Break Point Resilience (%40):** Weighted ratio of break points saved and faced .
 * **Tie-Break Performance (%20):** Win rate in tie-breaks.
 * **Deciding Set (%20):** Win rate in final sets (3rd set in Masters, 5th set in Slams).
@@ -50,10 +49,40 @@ A custom-engineered metric designed to quantify a player's mental fortitude. The
 ### 3. Statistical Hypothesis Testing 
 * **Pearson Correlation:** Calculates the strength and direction of the linear relationship between the *Clutch Index* and *Adjusted Win Rate*.
 * **P-Value Interpretation:** Automatically evaluates statistical significance (alpha = 0.05) and points to rejecting or failing to reject the Null Hypothesis ($H_0$).
-* **p-value Hypothesis Testing:** We performed a Pearson Correlation Test to validate our results.Results:Correlation Coefficient (r): 0.642P-Value: 1.44e-43 (<< 0.05)Result: We reject the Null Hypothesis. The data provides strong evidence that clutch performance is linked to winning more matches over a career.
+* **p-value Hypothesis Testing:** We performed a Pearson Correlation Test to validate our results.
+  Results:Correlation Coefficient (r): 0.642P-Value: 1.44e-43 (<< 0.05)
+  Result: We reject the Null Hypothesis. The data provides strong evidence that clutch performance is linked to winning more matches over a career.
+  
 ### 4.Visualizations & Analysis
 * **Component Analysis:**
 The scatter plots below show how individual clutch metrics correlate with career success. Note the strong linearity in Dominance Ratio and Deciding Set Win %.
 
 * **Correlation Matrix:**
 A heatmap displaying the relationships between all calculated features.
+
+## 6. Exploratory Data Analysis (EDA) 
+
+Before finalizing the *Clutch Index*, we analyzed the relationship between individual performance metrics and career success. The analysis of over 26,000 matches revealed several key patterns.
+
+### 1. Component Correlation Analysis
+We visualized individual components against the **Adjusted Win Rate** to understand which factors contribute most to a player's success.
+
+![Component Analysis](figures/clutch_component_analysis.png)
+
+**Key Observations:**
+1.  **Dominance is Key ($r=0.96$):** The strongest predictor of career success isn't actually winning close matches, but **winning easily** (Dominance Ratio). Players who win in straight sets consistently have the highest career win rates.
+2.  **Pressure Performance:**
+    * **Deciding Set Win % ($r=0.63$):** Winning the final set (3rd or 5th) has a very strong positive correlation with overall success.
+    * **Tie-Break Win % ($r=0.60$):** Ability to close out tight sets is an indicator of top tier players.
+    * **Break Point Save % ($r=0.57$):** While important, saving break points correlates slightly less with success than winning deciders, suggesting that *avoiding* break points (via Dominance) is preferable to *saving* them.
+
+### 2. Feature Correlation Heatmap
+To ensure our *Clutch Index* wasn't redundant, we checked multicollinearity between features.
+
+![Correlation Heatmap](figures/clutch_correlation_heatmap.png)
+
+* **Clutch Index Validity:** The calculated `Clutch_Index` has a correlation of **0.64** with `Adjusted_Win_Rate`, confirming that our formula successfully captures a signal relevant to winning, separate from just raw dominance.
+* **Independence:** Most individual clutch metrics (like TB Ratio and BP Ratio) have low correlation with each other ($r \approx 0.20$), indicating they measure different aspects of a player's mental game.
+
+### C. Distribution of Clutch Scores
+The calculated **Clutch Index** follows a near-normal distribution centered around a score of 100, with a slight right skew. This suggests that "extreme clutch" performance (scores > 120) is a rare trait possessed by only the elite tier of ATP players (The Big Three).
