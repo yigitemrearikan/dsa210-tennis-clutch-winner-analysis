@@ -19,6 +19,7 @@
  The dataset will be mainly from "Jeff Sackmann" https://github.com/jeffsackmann and https://www.tennisabstract.com/ which the website also has related github repos and also more detailed informations that I can use for calculation of metrics.
  ### Data Scope
  The Data will contain matches from 2000-2025 for only Men's Singles. I will not include Women's Singles the reason behind is, there is no consistency in winners and some like Maria Sharapova and Simona Halep tested doping positive and also I am not familiar with WTA level tennis for that many long time, therefore I am not including the Women's Singles. 
+
 ## 4. Data Cleaning and Preparation
 
 To ensure high data quality and relevance, the following preprocessing steps were applied:
@@ -28,3 +29,23 @@ To ensure high data quality and relevance, the following preprocessing steps wer
 
 2.  **Handling Missing Values (Imputation):**
     * Missing numerical data points (`N/A`) were imputed using the **mean** value of their respective features. 
+
+## 5. Methodology
+
+### 1. The "Clutch Index" Measure 
+A custom-engineered metric designed to quantify a player's mental fortitude. The index is a weighted aggregate of the following components:
+* **Break Point Resilience (%40):** Weighted ratio of break points saved and faced .
+* **Tie-Break Performance (%20):** Win rate in tie-breaks.
+* **Deciding Set (%20):** Win rate in final sets (3rd set in Masters, 5th set in Slams).
+* **Comeback Bonus:** Bonus points for recovering from 0-1 or 0-2 set deficits.
+* **Dominance Bonus:** Recognizes that winning in straight sets (avoiding "clutch" moments entirely) is a skill. Players like Nadal/Federer receive points for "clean" wins.
+* **Longevity Bonus:** Logarithmic scaling to reward players who maintain high performance over hundreds of matches vs. short-term outliers.
+
+### 2. Bayesian Adjusted Win Rate ️
+* **Problem:** A rookie with a 2-0 record (100%) should not be ranked higher than a legend with a 800-200 record (80%).
+* **Solution:** The algorithm "dampens" the win rate towards the global average (50%) by adding a "confidence weight" (C=50 matches).
+* **Formula:** `(Wins + 25) / (Matches + 50)`
+
+### 3. Statistical Hypothesis Testing 
+* **Pearson Correlation:** Calculates the strength and direction of the linear relationship between the *Clutch Index* and *Adjusted Win Rate*.
+* **P-Value Interpretation:** Automatically evaluates statistical significance (alpha = 0.05) and points to rejecting or failing to reject the Null Hypothesis ($H_0$).
