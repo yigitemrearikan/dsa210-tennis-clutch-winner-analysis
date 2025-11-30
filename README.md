@@ -34,6 +34,7 @@ To ensure high data quality and relevance, the following preprocessing steps wer
 
 ### 1. The "Clutch Index" Measure 
 A custom-engineered metric designed to quantify a player's mental fortitude. The index is a weighted aggregate of the following components:
+* $$\text{BaseScore} = (0.4 \times BP_{save\%}) + (0.2 \times TB_{win\%}) + (0.2 \times Decider_{win\%}) + \text{Bonuses}$$
 * **Break Point Resilience (%40):** Weighted ratio of break points saved and faced .
 * **Tie-Break Performance (%20):** Win rate in tie-breaks.
 * **Deciding Set (%20):** Win rate in final sets (3rd set in Masters, 5th set in Slams).
@@ -49,3 +50,10 @@ A custom-engineered metric designed to quantify a player's mental fortitude. The
 ### 3. Statistical Hypothesis Testing 
 * **Pearson Correlation:** Calculates the strength and direction of the linear relationship between the *Clutch Index* and *Adjusted Win Rate*.
 * **P-Value Interpretation:** Automatically evaluates statistical significance (alpha = 0.05) and points to rejecting or failing to reject the Null Hypothesis ($H_0$).
+* **p-value Hypothesis Testing:** We performed a Pearson Correlation Test to validate our results.Results:Correlation Coefficient (r): 0.642P-Value: 1.44e-43 (<< 0.05)Result: We reject the Null Hypothesis. The data provides strong evidence that clutch performance is linked to winning more matches over a career.
+### 4.Visualizations & Analysis
+* **Component Analysis:**
+The scatter plots below show how individual clutch metrics correlate with career success. Note the strong linearity in Dominance Ratio and Deciding Set Win %.
+
+* **Correlation Matrix:**
+A heatmap displaying the relationships between all calculated features.
