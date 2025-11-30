@@ -19,3 +19,7 @@
  The dataset will be mainly from "Jeff Sackmann" https://github.com/jeffsackmann and https://www.tennisabstract.com/ which the website also has related github repos and also more detailed informations that I can use for calculation of metrics.
  ### Data Scope
  The Data will contain matches from 2000-2025 for only Men's Singles. I will not include Women's Singles the reason behind is, there is no consistency in winners and some like Maria Sharapova and Simona Halep tested doping positive and also I am not familiar with WTA level tennis for that many long time, therefore I am not including the Women's Singles. 
+## 4.Data Cleaning and Preparation
+ ### Data Preprocessing 
+    Tournament Filtering: The dataset was filtered to exclude lower tier events (ATP 250 and ATP 500). The analysis is restricted to ATP Masters 1000 and Grand Slam tournaments to analyze peak competitive performance.
+    Handling Missing Values: Missing numerical data points (N/A) were imputed using the mean value of their respective features. 
