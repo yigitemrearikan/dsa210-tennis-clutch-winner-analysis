@@ -67,7 +67,7 @@ Before finalizing the *Clutch Index*, we analyzed the relationship between indiv
 ### 1. Component Correlation Analysis
 We visualized individual components against the **Adjusted Win Rate** to understand which factors contribute most to a player's success.
 
-![Component Analysis](figures/clutch_component_analysis.png)
+![Component Analysis](images/clutch_component_analysis.png)
 
 **Key Observations:**
 1.  **Dominance is Key ($r=0.96$):** The strongest predictor of career success isn't actually winning close matches, but **winning easily** (Dominance Ratio). Players who win in straight sets consistently have the highest career win rates.
@@ -79,7 +79,7 @@ We visualized individual components against the **Adjusted Win Rate** to underst
 ### 2. Feature Correlation Heatmap
 To ensure our *Clutch Index* wasn't redundant, we checked multicollinearity between features.
 
-![Correlation Heatmap](figures/clutch_correlation_heatmap.png)
+![Correlation Heatmap](images/clutch_correlation_heatmap.png)
 
 * **Clutch Index Validity:** The calculated `Clutch_Index` has a correlation of **0.64** with `Adjusted_Win_Rate`, confirming that our formula successfully captures a signal relevant to winning, separate from just raw dominance.
 * **Independence:** Most individual clutch metrics (like TB Ratio and BP Ratio) have low correlation with each other ($r \approx 0.20$), indicating they measure different aspects of a player's mental game.
