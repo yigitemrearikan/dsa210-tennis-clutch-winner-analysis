@@ -94,13 +94,15 @@ The calculated **Clutch Index** follows a near-normal distribution centered arou
 ### Unsupervised Learning (Clustering):
 
 K-Means clustering (k = 3) was applied to segment players into distinct clutch profiles.
-Clusters were labeled based on average career win rate:
+Clusters were interpreted based on average career win rate within each group:
 
-Elite Clutch
-Moderate Clutch
-Low Clutch
+The cluster with the highest mean win rate was labeled Elite Clutch
+
+The intermediate cluster was labeled Moderate Clutch
+
+The lowest-performing cluster was labeled Low Clutch
 
 ### Impact Analysis:
 
 A composite Clutch Score was computed as the mean of offensive and defensive clutch rates.
-Its relationship with career win rate was evaluated using correlation and linear regression.
+Its relationship with career win rate was evaluated using Pearson's correlation and linear regression.
