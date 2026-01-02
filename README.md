@@ -106,3 +106,23 @@ The lowest-performing cluster was labeled Low Clutch
 
 A composite Clutch Score was computed as the mean of offensive and defensive clutch rates.
 Its relationship with career win rate was evaluated using Pearson's correlation and linear regression.
+
+
+
+## 8. Findings 
+
+ Personally, I was expecting this result more or less. It has been a great fun to do this project maybe If I create a better Clutch Index with parameters the result may result in a more parallel way with my expectation or thoughts but I believe that it is still a good result and showing prominence. As a Result we can clearly say that being a Clutch player is an important factor to win titles but It will not be enough itself there should be talent as well as Clutchness, also we can divide this clutch performance to other groups some of them can be good in defence some in attack and some in both.
+
+## 9. Limitations
+
+ I think in terms of raw primary data there was not a limitations for this project but if you want to look deeper for example in matches the player can change the style of how he receive the ball or can change the direction of the shot it can be crosscourt it can be down the line so to some extent we can have more information to play which is in my opinion can have lots of meaning and these meanings can supply us more accurate calculation in the clutch performance.
+ Also one last limitation that I can think is that I am not very familiar with women's tennis so this project only included men's tennis so also inclusion of the women's tennis would be nice, but for this project I think if I included the women's tennis then the result would be more different because the preperation of the calculation metrics was all about trial and error so If I really don't know the player then I can not comment on it.
+
+## 9. Future Work
+
+  Adding women's tennis (WTA) will be good, also from the data that will retrieved from tennisabstract.com may lead to more accurate calculations there are tons of data there. There might be usage of different Machine Learning models. However, If I decide to continue to do commits for this project I will go with probably retrieving the data from tennisabstract.com and will experiment on posititoning of the player, Changes in the shot direction etc. 
+
+## 10. AI Usage 
+
+ In this project, I used Gemini for the coding part and for some parts in the readme.MD for a clearance. Finding all prompts that I have used is a bit hard because I also tried other things that I may think to use in the project but later on I backed off. The Bayesian Adjusment idea was also came from Gemini at the time I was seeing Joao Fonseca's name in the most clutch player's list but then I said to myself He shouldn't be here then Gemini gave this idea  but rest of the calculation metric is created by me. In terms of originality the rest performed by me. 
+ 
