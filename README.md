@@ -86,3 +86,21 @@ To ensure our *Clutch Index* wasn't redundant, we checked multicollinearity betw
 
 ### C. Distribution of Clutch Scores
 The calculated **Clutch Index** follows a near-normal distribution centered around a score of 100, with a slight right skew. This suggests that "extreme clutch" performance (scores > 120) is a rare trait possessed by only the elite tier of ATP players (The Big Three).
+
+
+## 7. Machine Learning Application
+ To analyze clutch performance under pressure, the following machine learning techniques were applied:
+ 
+### Unsupervised Learning (Clustering):
+
+K-Means clustering (k = 3) was applied to segment players into distinct clutch profiles.
+Clusters were labeled based on average career win rate:
+
+Elite Clutch
+Moderate Clutch
+Low Clutch
+
+### Impact Analysis:
+
+A composite Clutch Score was computed as the mean of offensive and defensive clutch rates.
+Its relationship with career win rate was evaluated using correlation and linear regression.
